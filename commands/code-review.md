@@ -4,6 +4,10 @@ description: "Perform a security-focused code review on specified files or direc
 
 Perform a complete security code review on the specified target.
 
+## Language Requirement (语言要求)
+
+**所有审查报告必须使用中文输出。** 报告标题、漏洞描述、修复建议、风险说明等所有文字内容必须使用中文。严重程度标签可保留英文（CRITICAL/HIGH/MEDIUM/LOW/INFO）但需附带中文说明。CWE/OWASP 参考编号保留英文原文。最终报告遵循 `references/report-template.md` 中的中文模板格式。
+
 ## Instructions
 
 1. **Determine the target**: Use the argument as the path to review. If no argument is provided, review the current working directory.

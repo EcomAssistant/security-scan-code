@@ -44,19 +44,19 @@ Read `references/checklist-design.md` for the full checklist.
 - Error handling strategy (fail-secure, no leakage)
 - Logging and audit trail design
 
-**Output format for design review findings:**
+**Output format for design review findings (必须使用中文):**
 
 ```markdown
-## Design Review Findings
+## 架构设计审查发现
 
-### [D-001] {Finding Title}
-- **Severity**: Critical / High / Medium / Low / Info
-- **Category**: Authentication | Authorization | Data Protection | API Design | Integration | Secret Management | Error Handling | Logging
-- **Component**: {affected component/module}
-- **Description**: {what's wrong and why it matters}
-- **Risk**: {potential business impact}
-- **Recommendation**: {specific, actionable fix}
-- **OWASP Reference**: {relevant OWASP category if applicable}
+### [D-001] {漏洞标题}
+- **严重程度**: 严重 (CRITICAL) / 高危 (HIGH) / 中危 (MEDIUM) / 低危 (LOW) / 信息 (INFO)
+- **分类**: 身份认证 | 权限控制 | 数据保护 | API设计 | 第三方集成 | 密钥管理 | 错误处理 | 日志审计
+- **影响组件**: {受影响的组件/模块}
+- **描述**: {问题描述及其重要性}
+- **风险**: {潜在的业务影响}
+- **修复建议**: {具体、可操作的修复方案}
+- **OWASP 参考**: {相关 OWASP 分类}
 ```
 
 ### Step 2: Implementation Review (Code Level)
@@ -93,26 +93,26 @@ For each file under review:
 4. Check each focus area against the code
 5. Document findings with file path and line numbers
 
-**Output format for implementation findings:**
+**Output format for implementation findings (必须使用中文):**
 
 ```markdown
-## Implementation Review Findings
+## 代码实现审查发现
 
-### [I-001] {Finding Title}
-- **Severity**: Critical / High / Medium / Low / Info
-- **File**: `{file_path}:{line_number}`
-- **Category**: Injection | XSS | Auth | Crypto | Data Exposure | Config | Concurrency | Other
-- **Vulnerability Pattern**: {CWE-ID if applicable}
-- **Current Code**:
+### [I-001] {漏洞标题}
+- **严重程度**: 严重 (CRITICAL) / 高危 (HIGH) / 中危 (MEDIUM) / 低危 (LOW) / 信息 (INFO)
+- **文件**: `{file_path}:{line_number}`
+- **分类**: 注入攻击 | XSS跨站脚本 | 身份认证 | 加密安全 | 数据泄露 | 配置安全 | 并发安全 | 其他
+- **漏洞模式**: {CWE-ID}
+- **问题代码**:
 ```
-  {vulnerable code snippet}
+  {存在漏洞的代码片段}
   ```
-- **Issue**: {why this code is vulnerable}
-- **Fix**:
+- **问题描述**: {为什么这段代码存在漏洞}
+- **修复建议**:
   ```
-  {corrected code snippet}
+  {修复后的代码片段}
   ```
-- **Testing**: {how to verify the fix works}
+- **验证方法**: {如何验证修复是否有效}
   ```
 
 ### Step 3: Test Coverage Review
@@ -132,19 +132,19 @@ Read `references/checklist-testing.md` for the full checklist.
 - Rate limiting test verification
 - Integration test security scenarios
 
-**Output format for testing findings:**
+**Output format for testing findings (必须使用中文):**
 
 ```markdown
-## Test Coverage Findings
+## 测试覆盖审查发现
 
-### [T-001] {Finding Title}
-- **Severity**: Critical / High / Medium / Low / Info
-- **Category**: Missing Test | Weak Assertion | Missing Edge Case | Missing Abuse Case
-- **Related Finding**: {links to D-xxx or I-xxx findings}
-- **Description**: {what test coverage is missing}
-- **Recommended Test**:
+### [T-001] {测试缺陷标题}
+- **严重程度**: 严重 (CRITICAL) / 高危 (HIGH) / 中危 (MEDIUM) / 低危 (LOW) / 信息 (INFO)
+- **分类**: 缺失测试 | 断言不充分 | 缺少边界测试 | 缺少异常用例
+- **关联发现**: {关联的 D-xxx 或 I-xxx 编号}
+- **描述**: {缺少哪些测试覆盖}
+- **建议测试用例**:
 ```
-  {test code or test case description}
+  {测试代码或测试用例描述}
   ```
 
   ```
@@ -253,6 +253,16 @@ Adapt the review focus based on the detected language:
 - **Ruby**: SQL injection (ActiveRecord), YAML deserialization, mass assignment, CSRF, SSRF
 - **Go**: Command injection via exec, SSRF, race conditions, unsafe CGO
 
+## Language Requirement (语言要求)
+
+**所有报告和审计发现必须使用中文输出。**
+
+- 报告标题、描述、修复建议、风险说明等所有文字内容必须使用中文
+- 代码注释中的安全说明使用中文
+- 严重程度标签可保留英文（CRITICAL/HIGH/MEDIUM/LOW/INFO）以便标准化，但必须附带中文说明
+- CWE/OWASP 参考编号保留英文原文
+- 报告格式遵循 `references/report-template.md` 中的中文模板
+
 ## Behavioral Guidelines
 
 - **Be thorough but practical**: Focus on exploitable vulnerabilities, not theoretical risks
@@ -262,3 +272,4 @@ Adapt the review focus based on the detected language:
 - **Reference standards**: Map findings to OWASP Top 10, CWE, or team coding standards
 - **Avoid false positives**: Verify findings before reporting; if uncertain, note confidence level
 - **Respect scope**: Only review what was requested, note out-of-scope observations separately
+- **Output in Chinese**: All reports, findings, and recommendations must be written in Chinese (中文)
