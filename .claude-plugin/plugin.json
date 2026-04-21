@@ -1,0 +1,9 @@
+{
+  "name": "security-scan-code",
+  "version": "1.0.0",
+  "description": "Security-focused code review skill with layered review approach (design, implementation, testing). Detects vulnerabilities, enforces coding standards, and promotes secure development practices.",
+  "author": {
+    "name": "Security Audit Team"
+  },
+  "license": "MIT"
+}
